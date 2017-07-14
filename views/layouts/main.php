@@ -28,21 +28,21 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => '萌萌',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-        ['label' => 'Wechat', 'url' => ['/wechat/default']],
+        ['label' => '回家~', 'url' => ['/site/index']],
+        ['label' => '关于我们~', 'url' => ['/site/about']],
+        ['label' => '联系我们~', 'url' => ['/site/contact']],
+        ['label' => '微信?~~', 'url' => ['/wechat/default']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/user/registration/register']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/user/security/login']];
+        $menuItems[] = ['label' => '^注册^', 'url' => ['/user/registration/register']];
+        $menuItems[] = ['label' => '&登录&', 'url' => ['/user/security/login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/user/security/logout'], 'post')
