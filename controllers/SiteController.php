@@ -62,7 +62,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $userModel = Yii::$app->user->identityClass;
-        $users = $userModel::find()->asArray()->all();
+        $users = $userModel::find()->where(['flags' => 0])->asArray()->all();
         return $this->render('index', compact('users'));
     }
 
