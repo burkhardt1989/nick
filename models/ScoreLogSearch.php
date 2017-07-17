@@ -19,7 +19,7 @@ class ScoreLogSearch extends ScoreLog
     {
         return [
             [['id', 'user_id', 'befor_score', 'score', 'after_score', 'op_id'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['memo', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -68,6 +68,8 @@ class ScoreLogSearch extends ScoreLog
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
+
+        $query->andFilterWhere(['like', 'memo', $this->memo]);
 
         return $dataProvider;
     }

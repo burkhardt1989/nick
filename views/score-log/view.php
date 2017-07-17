@@ -39,6 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $user->username;
                 }
             ],
+            'memo',
             'created_at',
         ],
     ]) ?>

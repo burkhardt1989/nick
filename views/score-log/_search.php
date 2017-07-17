@@ -25,6 +25,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'after_score') ?>
 
+    <?php // echo $form->field($model, 'memo') ?>
+
     <?php // echo $form->field($model, 'op_id') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>

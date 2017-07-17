@@ -35,6 +35,7 @@ class ScoreLog extends \yii\db\ActiveRecord
             [['score'], 'required'],
             [['id', 'user_id', 'befor_score', 'score', 'after_score', 'op_id'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
+            [['memo'], 'string', 'max' => 255],
         ];
     }
 
@@ -49,6 +50,7 @@ class ScoreLog extends \yii\db\ActiveRecord
             'befor_score' => '操作前积分',
             'score' => '积分修改',
             'after_score' => '操作后积分',
+            'memo' => '备注',
             'op_id' => '操作用户ID',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',

@@ -43,6 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $user->username;
                 }
             ],
+            'memo',
             'created_at',
 
             ['class' => 'yii\grid\ActionColumn', 'template' => '{view}'],
