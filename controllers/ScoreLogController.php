@@ -80,7 +80,7 @@ class ScoreLogController extends Controller
         }
         $username = $_GET['username'];
         $userModel = Yii::$app->user->identityClass;
-        $user = $userModel::find(['username' => $username])->one();
+        $user = $userModel::findOne(['username' => $username]);
         if (empty($user)) {
             throw new BadRequestHttpException("用户不存在");
         }

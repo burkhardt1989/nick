@@ -58,7 +58,6 @@ class ScoreLog extends \yii\db\ActiveRecord
     // 通过user_id加载
     public function loadByUserId($data, $formName = null)
     {
-        // print_r($data);exit;
         if (empty($data)) {
             return false;
         }
