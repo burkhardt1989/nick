@@ -75,13 +75,24 @@ class ScoreLogController extends Controller
      */
     public function actionCreate()
     {
+        if (empty($_GET['username'])) {
+            throw new BadRequestHttpException("参数错误");
+        }
+        $username = $_GET['username'];
+        $userModel = Yii::$app->user->identityClass;
+        $user = $userModel::find(['username' => $username])->one();
+        if (empty($user)) {
+            throw new BadRequestHttpException("用户不存在");
+        }
         $model = new ScoreLog();
+        $model->user_id = $user->id;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->loadByUserId(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'username' => $username,
             ]);
         }
     }

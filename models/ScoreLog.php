@@ -55,18 +55,18 @@ class ScoreLog extends \yii\db\ActiveRecord
         ];
     }
 
-    public function load($data, $formName = null)
+    // 通过user_id加载
+    public function loadByUserId($data, $formName = null)
     {
-        if (empty($data['username'])) {
+        // print_r($data);exit;
+        if (empty($data)) {
             return false;
         }
         $userModel = Yii::$app->user->identityClass;
-        $user = $userModel::findOne(['username' => $data['username']]);
+        $user = $userModel::findOne(['id' => $data['ScoreLog']['user_id']]);
         if (empty($user)) {
             return false;
         }
-        unset($data['username']);
-        $data['ScoreLog']['user_id'] = $user->id;
         $data['ScoreLog']['befor_score'] = $user->score;
         $data['ScoreLog']['after_score'] = $user->score + $data['ScoreLog']['score'];
         $data['ScoreLog']['op_id'] = Yii::$app->user->id;

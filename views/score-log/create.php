@@ -13,6 +13,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="score-log-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <h2>
+    	<?= Html::label('用户名: ') ?>
+    	<?= Html::encode($username) ?>
+    </h2>
 
     <?= $this->render('_form', [
         'model' => $model,

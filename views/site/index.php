@@ -168,13 +168,14 @@ table {
     <tr>
         <th>名称</th>        
         <th>积分</th>
-        <th>操作</th>
-
+        <th>show</th>
+        <th>+++</th>
     </tr>
     </thead>
     <tfoot>
     <tr>
         <td>&nbsp;</td>        
+        <td></td>
         <td></td>
         <td></td>
     </tr>
@@ -186,6 +187,11 @@ table {
                 <td>
                     <a href="<?= Yii::$app->getUrlManager()->createUrl('score-log/index') ?>">
                         查看
+                    </a>
+                </td>
+                <td>
+                    <a href="<?= Yii::$app->getUrlManager()->createUrl(['score-log/create', 'username' => $user['username']]) ?>">
+                        添加积分
                     </a>
                 </td>
             </tr>

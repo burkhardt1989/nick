@@ -12,11 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= Html::label('用户名') ?>
-
-    <br>
-
-    <?= Html::textInput('username') ?>
+    <div style="display: none;">
+    	<?= $form->field($model, 'user_id')->hiddenInput() ?>
+    </div>
 
     <?= $form->field($model, 'score')->textInput() ?>
 
