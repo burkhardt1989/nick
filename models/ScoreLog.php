@@ -76,8 +76,8 @@ class ScoreLog extends \yii\db\ActiveRecord
             $transaction->rollBack();
             return false;
         }
-        Yii::$app->user->Identity->score += $data['ScoreLog']['score'];
-        if (!Yii::$app->user->Identity->save()) {
+        $user->score += $data['ScoreLog']['score'];
+        if (!$user->save()) {
             $transaction->rollBack();
             return false;
         }
